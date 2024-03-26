@@ -177,14 +177,6 @@ void kwrapper(F* f, size_t nb_iter) {
 }
 
 template<class F>
-struct FWrapper {
-	F f;
-	inline void operator()(size_t it) {
-		f(it);
-	}
-};
-
-template<class F>
 void parallel_for(size_t nb_iter, F&& host_f)
 {
 	void* dev_f = rmalloc(sizeof(host_f));
